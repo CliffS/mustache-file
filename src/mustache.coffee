@@ -21,33 +21,47 @@ class Mustache
     fullPath = undefined
     findFirst = (callback) =>
       path = paths.shift()
-      return callback new Error "File not found" unless path?
+      # Have we run out of paths?
+      return callback new Error "File not found: #{filename}" unless path?
       file = Path.join path, "#{filename}.#{@extension}"
       fs.access file, fs.R_OK, (err) ->
         fullPath = file unless err
-        do callback
+        callback undefined  # Success
+    # Try to find the file, one path at a time, in order
     Async.doUntil findFirst, =>
       fullPath?
     , (err) =>
       return callback err if err
+      # Read the file
       fs.readFile fullPath, encoding: 'utf-8', (err, data) =>
         return callback err if err
+        # Find any partials
         partials = data.match partialRE
+        # or pass an empty array
         partials ?= []
+        # Deal with all the partials in parallel
         Async.each partials, (partial, cb) =>
+          # and strip out the filename
           partial = partial.replace partialRE, '$1'
+          # Call readFile recursively to find partials within partials
           @readFile partial, (err, part)  =>
             return cb err if err
+            # Save partials off in the instance
             @parts[partial] = part
             cb undefined
         , (err) ->
+          # All partials done, pass back the template
           callback err, data
 
   render: (file, context, callback) ->
     @parts = {}
     @readFile file, (err, template) =>
-      callback err if err
-      callback undefined, mustache.render template, context, @parts
+      return callback err if err
+      try
+        result = mustache.render template, context, @parts
+      catch err
+        return callback err
+      callback undefined, result
 
 module.exports = Mustache
 

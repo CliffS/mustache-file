@@ -1,6 +1,6 @@
 {
   "name": "mustache-file",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Read mustache files and partials from disk. A simple wrapper around https://github.com/janl/mustache.js",
   "main": "lib/mustache.js",
   "scripts": {
