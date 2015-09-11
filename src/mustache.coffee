@@ -1,5 +1,9 @@
 ###
 # mustache-file.js - wrapper around mustache
+#
+# For fully documented souce code, please see the coffeescript
+# source on gGithub.
+#
 ###
 
 fs = require 'fs'
@@ -28,7 +32,8 @@ class Mustache
         fullPath = file unless err
         callback undefined  # Success
     # Try to find the file, one path at a time, in order
-    Async.doUntil findFirst, =>
+    Async.doUntil findFirst, ->
+      # Keep going until fullPath is set then stop, guaranteeing the 1st match
       fullPath?
     , (err) =>
       return callback err if err
