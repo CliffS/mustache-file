@@ -1,10 +1,11 @@
 {
   "name": "mustache-file",
-  "version": "0.1.4",
-  "description": "Read mustache files and partials from disk. A simple wrapper around https://github.com/janl/mustache.js",
+  "version": "0.1.5",
+  "description": "Read mustache files and partials from disk and pass them to mustache",
   "main": "lib/mustache.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "coffee -c -o lib src/*.coffee"
   },
   "repository": {
     "type": "git",

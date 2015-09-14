@@ -2,7 +2,9 @@
 # mustache-file.js - wrapper around mustache
 #
 # For fully documented souce code, please see the coffeescript
-# source on gGithub.
+# source on Github.
+#
+# Version: 0.1.5
 #
 ###
 
@@ -27,7 +29,10 @@ class Mustache
       path = paths.shift()
       # Have we run out of paths?
       return callback new Error "File not found: #{filename}" unless path?
-      file = Path.join path, "#{filename}.#{@extension}"
+      file = if @extension?
+          Path.join path, "#{filename}.#{@extension}"
+        else
+          Path.join path, filename
       fs.access file, fs.R_OK, (err) ->
         fullPath = file unless err
         callback undefined  # Success
@@ -58,7 +63,7 @@ class Mustache
           # All partials done, pass back the template
           callback err, data
 
-  render: (file, context, callback) ->
+  _render: (file, context, callback) ->
     @parts = {}
     @readFile file, (err, template) =>
       return callback err if err
@@ -67,6 +72,13 @@ class Mustache
       catch err
         return callback err
       callback undefined, result
+
+  render: (file, context, callback) ->
+    return @_render file, context, callback if callback
+    new Promise (resolve, reject) =>
+      @_render file, context, (err, result) ->
+        return reject err if err
+        resolve result
 
 module.exports = Mustache
 
