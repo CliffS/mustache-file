@@ -25,19 +25,19 @@ For a language-agnostic overview of mustache's template syntax, see the
 
 ## Usage
 
-    Mustache = require('mustache-file)
+    Mustache = require('mustache-file');
 
 This returns a Mustache class that can be instantiated with `new`.
 
-    must = new Mustache(options)
+    must = new Mustache(options);
 
-Create a new Mustache object.  Options, currently are:
+Create a new Mustache object.  Options is an object containing:
 
     extension:
 
-The extension to add to the template names passed to `render`.  If extension
+The extension to add to the template names passed to `render()`.  If extension
 is null, nothing will be added to the filename.  There is no need for
-the leading `.` on the extension.  The default is `mustache`.
+the leading `.` on the extension.  The default is `"mustache"`.
 
     path:
 
@@ -46,6 +46,9 @@ be a string or an array of strings.  If it is an array, the paths will be
 searched in order, both for the original template and for each partial.
 Relative paths are surched from the current working directory.
 
+If it is not passed, templates will be loaded from the current working
+directory.
+
 ### Example:
 
     must = new Mustache({
@@ -53,7 +56,8 @@ Relative paths are surched from the current working directory.
         path: [ 'templates/special', 'templates' ]
     });
 
-To render the template either pass a callback or treat `render()` as
+To render the template either pass a callback or
+(if no callback is passed) `render()` will return
 a promise.
 
 #### With a callback
