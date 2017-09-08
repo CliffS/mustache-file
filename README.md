@@ -51,10 +51,12 @@ directory.
 
 ### Example:
 
-    must = new Mustache({
-        extension: 'html',
-        path: [ 'templates/special', 'templates' ]
-    });
+```javascript
+must = new Mustache({
+    extension: 'html',
+    path: [ 'templates/special', 'templates' ]
+});
+```
 
 To render the template either pass a callback or
 (if no callback is passed) `render()` will return
@@ -62,13 +64,19 @@ a promise.
 
 #### With a callback
 
+```javascript
+must = new Mustache({
     must.render(template, context, function(err, html) {
         if (err) throw err;
         // Send html to the browser, for example
     });
+```
+
 
 #### As a promise
 
+```javascript
+must = new Mustache({
     must.render(template, context)
     .then(function(html) {
         // Send html to the browser, for example
@@ -76,6 +84,7 @@ a promise.
     .catch(function(err) {
         throw err;
     });
+```
 
-This module should currently be treated as beta.  Any issues
-or comments would be appreciated at [Github][issues].
+
+Any issues or comments would be appreciated at [Github][issues].
