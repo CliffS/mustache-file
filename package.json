@@ -1,6 +1,6 @@
 {
   "name": "mustache-file",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "Read mustache files and partials from disk and pass them to mustache",
   "main": "lib/mustache.js",
   "scripts": {
@@ -17,9 +17,9 @@
     "partial"
   ],
   "author": {
-      "name": "Cliff Stanford",
-      "email": "cliff@may.be",
-      "url": "http://may.be"
+    "name": "Cliff Stanford",
+    "email": "cliff@may.be",
+    "url": "http://may.be"
   },
   "license": "Unlicense",
   "bugs": {
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/CliffS/mustache-file#readme",
   "files": [
-      "lib"
+    "lib"
   ],
   "dependencies": {
     "async": "^1.4.2",
