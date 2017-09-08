@@ -5,7 +5,8 @@
   "main": "lib/mustache.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "coffee -c -o lib src/*.coffee"
+    "compile": "coffee -c -o lib src/*.coffee",
+    "prepare": "npm run-script compile"
   },
   "repository": {
     "type": "git",

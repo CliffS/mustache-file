@@ -28,3 +28,6 @@ node_modules
 
 # Vim
 *.sw?
+
+# Only save the source to git
+lib
