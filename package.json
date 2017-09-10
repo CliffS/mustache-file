@@ -6,11 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "coffee -c -o lib src/*.coffee",
-    "prepare": "npm run-script compile"
+    "prepare": "npm run-script compile",
+    "watch": "cd $(npm prefix); coffee -w -o lib -c src &"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CliffS/mustache-file.git"
+  },
+  "bin": {
+      "mustache": "bin/command.js"
   },
   "keywords": [
     "mustache",
