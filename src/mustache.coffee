@@ -16,13 +16,15 @@ Async = require 'async'
 partialRE = /{{>\s*([\w-]+)\s*}}/g
 
 class Mustache
-  constructor: (options) ->
+  constructor: (options = {}) ->
     @extension = options.extension ? 'mustache'
     @path      = options.path      ? '.'
 
   parts: {}
 
   readFile: (filename, callback) ->
+    regex = new RegExp "\.#{@extension}$"
+    filename = filename.replace regex, ''
     paths = if Array.isArray @path then @path.slice 0 else [ @path ]
     fullPath = undefined
     findFirst = (callback) =>
