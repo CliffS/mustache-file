@@ -14,7 +14,7 @@
     "url": "git+https://github.com/CliffS/mustache-file.git"
   },
   "bin": {
-      "mustache": "bin/command.js"
+    "mustache": "bin/command.js"
   },
   "keywords": [
     "mustache",
@@ -23,9 +23,9 @@
   "author": {
     "name": "Cliff Stanford",
     "email": "cliff@may.be",
-    "url": "http://may.be"
+    "url": "http://may.be/"
   },
-  "license": "Unlicense",
+  "license": "UNLICENSE",
   "bugs": {
     "url": "https://github.com/CliffS/mustache-file/issues"
   },
