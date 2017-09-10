@@ -1,6 +1,6 @@
 {
   "name": "mustache-file",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Read mustache files and partials from disk and pass them to mustache",
   "main": "lib/mustache.js",
   "scripts": {
