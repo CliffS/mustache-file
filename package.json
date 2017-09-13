@@ -6,11 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "coffee -c -o lib src/*.coffee",
-    "prepare": "npm run-script compile"
+    "prepare": "npm run-script compile",
+    "watch": "cd $(npm prefix); coffee -w -o lib -c src &"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CliffS/mustache-file.git"
+  },
+  "bin": {
+    "mustache": "bin/command.js"
   },
   "keywords": [
     "mustache",
@@ -19,7 +23,7 @@
   "author": {
     "name": "Cliff Stanford",
     "email": "cliff@may.be",
-    "url": "http://may.be"
+    "url": "http://may.be/"
   },
   "license": "Unlicense",
   "bugs": {
@@ -31,6 +35,7 @@
   ],
   "dependencies": {
     "async": "^1.4.2",
-    "mustache": "^2.1.3"
+    "minimist": "^1.2.0",
+    "mustache": "^2.3.0"
   }
 }
