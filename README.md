@@ -86,5 +86,29 @@ must = new Mustache({
     });
 ```
 
+## mustache as a command-line utility
+
+Starting from version 2.0.0, `mustache-file` contains a
+`mustache` executable.  You can make this globally available
+by:
+
+    npm install -g mustache-file
+
+The syntax is:
+
+    mustache [options] template.mustache [ context.json ]
+      options:
+        -o | --output:  Output path for the rendered text
+                        (STDOUT if not specified)
+        -v | --version: Print version and exit
+        -h | --help:    This help list
+
+If no context is required, `context.json` can be omitted.  Also,
+the suffixes `.mustache` and `.json` will be added automatically
+if omitted.
+
+If no output file is specified, output will be to stdout.
+
+## Any problems?
 
 Any issues or comments would be appreciated at [Github][issues].
