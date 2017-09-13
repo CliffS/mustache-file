@@ -13,6 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/CliffS/mustache-file.git"
   },
+  "directories": {
+      "lib": "./lib",
+      "bin": "./bin"
+  },
   "bin": {
     "mustache": "bin/command.js"
   },
