@@ -35,7 +35,8 @@
   },
   "homepage": "https://github.com/CliffS/mustache-file#readme",
   "files": [
-    "lib"
+    "lib",
+    "bin"
   ],
   "dependencies": {
     "async": "^1.4.2",

@@ -31,3 +31,4 @@ node_modules
 
 # Only save the source to git
 lib
+*.tgz
