@@ -18,7 +18,7 @@
     "bin": "./bin"
   },
   "bin": {
-    "mustache": "bin/command.js"
+    "mustache": "./bin/command.js"
   },
   "keywords": [
     "mustache",
