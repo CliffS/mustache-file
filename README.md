@@ -86,7 +86,7 @@ must = new Mustache({
     });
 ```
 
-## mustache as a command-line utility
+## Mustache as a command-line utility
 
 Starting from version 2.0.0, `mustache-file` contains a
 `mustache` executable.  You can make this globally available
@@ -98,14 +98,22 @@ The syntax is:
 
     mustache [options] template.mustache [ context.json ]
       options:
-        -o | --output:  Output path for the rendered text
-                        (STDOUT if not specified)
-        -v | --version: Print version and exit
-        -h | --help:    This help list
+        -o | --output:    Output path for the rendered text
+                          (STDOUT if not specified)
+        -p | --pretty:    Reformat the html output
+        -e | --extension: override the default extension of .mustache
+        -v | --version:   Print version and exit
+        -h | --help:      This help list
 
 If no context is required, `context.json` can be omitted.  Also,
 the suffixes `.mustache` and `.json` will be added automatically
 if omitted.
+
+It is possible to override the `.mustache` suffix with the 
+`--extension` switch.  This will add the correct extension
+for the main file and all the partials.  For example:
+
+    mustache --extension 'html' index
 
 If no output file is specified, output will be to stdout.
 

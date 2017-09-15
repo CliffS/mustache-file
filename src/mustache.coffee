@@ -12,6 +12,7 @@ fs = require 'fs'
 mustache = require 'mustache'
 Path = require 'path'
 Async = require 'async'
+Pretty = require 'pretty'
 
 partialRE = /{{>\s*([\w-]+)\s*}}/g
 
@@ -19,6 +20,7 @@ class Mustache
   constructor: (options = {}) ->
     @extension = options.extension ? 'mustache'
     @path      = options.path      ? '.'
+    @pretty    = options.pretty
 
   parts: {}
 
@@ -73,6 +75,7 @@ class Mustache
         result = mustache.render template, context, @parts
       catch err
         return callback err
+      result = Pretty result, ocd: true if @pretty
       callback undefined, result
 
   render: (file, context, callback) ->

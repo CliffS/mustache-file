@@ -10,12 +10,18 @@ main = ->
     boolean: [
       'help'
       'version'
+      'pretty'
     ]
-    string: 'output'
+    string: [
+      'output'
+      'extension'
+    ]
     alias:
-      output: 'o'
-      version: 'v'
-      help: 'h'
+      output:     'o'
+      help:       'h'
+      version:    'v'
+      pretty:     'p'
+      extension:  'e'
     unknown: (param) ->
       return true unless param[0] is '-'
       console.error "\nError: #{param} is not a valid switch"
@@ -32,7 +38,10 @@ main = ->
     catch err
       console.error err.toString()
       process.exit 1
-  mustache = new Mustache
+  options = {}
+  options.pretty = args.p
+  options.extension = args.e if args.e
+  mustache = new Mustache options
   mustache.render template, context
   .then (output) ->
     if args.output
@@ -49,10 +58,12 @@ syntax = ->
 
     mustache [options] template.mustache [ context.json ]
       options:
-        -o | --output:  Output path for the rendered text
-                        (STDOUT if not specified)
-        -v | --version: Print version and exit
-        -h | --help:    This help list
+        -o | --output:    Output path for the rendered text
+                          (STDOUT if not specified)
+        -p | --pretty:    Reformat the html output
+        -e | --extension: override the default extension of .mustache
+        -v | --version:   Print version and exit
+        -h | --help:      This help list
   """
   process.exit 1
 
