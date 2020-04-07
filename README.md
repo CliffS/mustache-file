@@ -44,7 +44,7 @@ the leading `.` on the extension.  The default is `"mustache"`.
 This is the path to look for the template and any partials.  It can either
 be a string or an array of strings.  If it is an array, the paths will be
 searched in order, both for the original template and for each partial.
-Relative paths are surched from the current working directory.
+Relative paths are searched from the current working directory.
 
 If it is not passed, templates will be loaded from the current working
 directory.
