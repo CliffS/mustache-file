@@ -35,5 +35,8 @@
     "minimist": "^1.2.5",
     "mustache": "^4.1.0",
     "pretty": "^2.0.0"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.5.1"
   }
 }
