@@ -5,9 +5,10 @@
   "main": "lib/mustache.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "coffee -c -o lib src/*.coffee",
-    "prepare": "npm run-script compile",
-    "watch": "cd $(npm prefix); coffee -w -o lib -c src &"
+    "build": "npm run lint && coffee -c -o lib src/*.coffee",
+    "prepare": "npm run-script build",
+    "watch": "coffee -w -o lib -c src &",
+    "lint": "coffeelint src/*"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "pretty": "^2.0.0"
   },
   "devDependencies": {
+    "coffeelint": "^2.1.0",
     "coffeescript": "^2.5.1"
   }
 }

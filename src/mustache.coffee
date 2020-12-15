@@ -34,9 +34,9 @@ class Mustache
       # Have we run out of paths?
       return callback new Error "File not found: #{filename}" unless path?
       file = if @extension?
-          Path.join path, "#{filename}.#{@extension}"
-        else
-          Path.join path, filename
+        Path.join path, "#{filename}.#{@extension}"
+      else
+        Path.join path, filename
       fs.access file, fs.R_OK, (err) ->
         fullPath = file unless err
         callback undefined  # Success
