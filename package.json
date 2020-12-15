@@ -33,7 +33,7 @@
   "dependencies": {
     "async": "^1.4.2",
     "minimist": "^1.2.5",
-    "mustache": "^4.0.1",
+    "mustache": "^4.1.0",
     "pretty": "^2.0.0"
   }
 }
