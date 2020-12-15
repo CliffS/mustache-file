@@ -1,6 +1,6 @@
 {
   "name": "mustache-file",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "Read mustache files and partials from disk and pass them to mustache",
   "main": "lib/mustache.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/CliffS/mustache-file.git"
   },
   "bin": {
-    "mustache": "./bin/command.js"
+    "mustache": "bin/command.js"
   },
   "keywords": [
     "mustache",
