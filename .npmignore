@@ -2,3 +2,4 @@
 src/
 *.tgz
 .*.sw?
+tmp/
