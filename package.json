@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/CliffS/mustache-file#readme",
   "dependencies": {
-    "async": "^3.2.1",
+    "async": "^1.5.2",
     "minimist": "^1.2.5",
     "mustache": "^4.2.0",
     "pretty": "^2.0.0"
